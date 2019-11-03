@@ -1,9 +1,21 @@
+/* eslint-disable react/static-property-placement */
+/* eslint-disable react/state-in-constructor */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import api from '../../services/api';
 
 // import { Container } from './styles';
 
 export default class Repository extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        repository: PropTypes.string,
+      }),
+    }).isRequired,
+  };
+
   state = {
     repository: {}, // unico repositorio inicia como objeto
     issues: [], // como são varios issues então neste caso é array,
